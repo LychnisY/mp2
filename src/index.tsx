@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/<your-github-repo-name>">
+    <BrowserRouter basename="/mp2">
       <App />
     </BrowserRouter>
     
