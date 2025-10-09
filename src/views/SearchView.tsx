@@ -199,8 +199,9 @@ return (
                   search: s.school
                     ? `?school=${encodeURIComponent(s.school)}`
                     : "",
+                  
                 }}
-                state={s}
+                state={{ student: s, list: shown }}
                 style={{
                   fontSize: 20,
                   color: "#c1438a",

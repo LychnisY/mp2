@@ -1,8 +1,9 @@
 // src/views/DetailView.tsx
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
-import { Student } from "../types";
+import type { Student } from "../types";
 import { fetchByName } from "../api";
+
 
 type DetailState = {
   /** 列表页点进来时可直接带上选中项，减少一次请求 */
@@ -37,6 +38,7 @@ export default function DetailView() {
 
   // 刷新或直达：按名字远程取详情（API: /api/characters?name=...）
   useEffect(() => {
+    
     setError(null);
     (async () => {
       try {
@@ -55,7 +57,9 @@ export default function DetailView() {
   }, [decodedName, schoolQS]);
 
   // Prev/Next：仅当从列表页带来上下文时启用
+  
   const siblings = state.list ?? null;
+  
   const index = useMemo(() => {
     if (!siblings || !current) return -1;
     const i = siblings.findIndex(x =>
@@ -80,9 +84,9 @@ export default function DetailView() {
   if (loading) return <p style={{ textAlign: "center" }}>Loading…</p>;
   if (error) return <p style={{ textAlign: "center", color: "crimson" }}>Error: {error}</p>;
   if (!current) return <p style={{ textAlign: "center" }}>Not found.</p>;
-
   return (
     <section style={{ maxWidth: 900, margin: "0 auto" }}>
+      
       <div style={{ position: "relative", background: "#dfe9ee", padding: 18, borderRadius: 12 }}>
         {/* Prev / Next（有上下文时才显示） */}
         {prevMeta && (

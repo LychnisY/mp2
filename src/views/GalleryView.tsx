@@ -93,14 +93,12 @@ export default function GalleryView() {
 
   return (
     <section style={{ maxWidth: 1100, margin: "0 auto" }}>
-      {/* 学校过滤按钮 */}
       <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center", marginBottom: 16 }}>
         {schools.map(sc => (
           <FilterButton key={sc} active={school === sc} onClick={() => setSchool(sc)}>{sc}</FilterButton>
         ))}
       </div>
 
-      {/* 状态条 */}
       <div style={{ textAlign: "center", opacity: .7, marginBottom: 8 }}>
         {error
           ? <span style={{ color: "crimson" }}>Error: {error}</span>
@@ -109,7 +107,6 @@ export default function GalleryView() {
             </span>}
       </div>
 
-      {/* 网格 */}
       <div style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
@@ -118,7 +115,7 @@ export default function GalleryView() {
         {items.map(s => (
           <Link key={`${s.id}-${s.name}`}
                 to={{ pathname: `/students/${encodeURIComponent(s.name)}`, search: s.school ? `?school=${encodeURIComponent(s.school)}` : "" }}
-                state={s}
+                state={{ student: s, list: items }}
                 style={{ display: "block", background: "#f3f6f9", borderRadius: 10, padding: 8, textAlign: "center" }}>
             <img src={s.portraitUrl} alt={s.name}
                  style={{ width: "100%", height: 180, objectFit: "cover", borderRadius: 8 }}

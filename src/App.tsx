@@ -13,25 +13,24 @@ export default function App() {
         overflow: "hidden",
       }}
     >
-      {/* ✅ 背景图层 */}
+
       <img
         src={`${process.env.PUBLIC_URL}/search_bg.jpg`} // public 下的图片
         alt=""
         aria-hidden
         style={{
-          position: "fixed", // ✅ fixed 让它贯穿整个页面
+          position: "fixed", 
           inset: 0,
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          filter: "blur(18px) brightness(0.9) saturate(1.05)", // 模糊、压暗、略提饱和
+          filter: "blur(18px) brightness(0.9) saturate(1.05)",
           transform: "scale(1.08)",
           zIndex: 0,
-          pointerEvents: "none", // 不挡点击
+          pointerEvents: "none", 
         }}
       />
 
-      {/* ✅ 半透明遮罩层，增加可读性 */}
       <div
         style={{
           position: "fixed",
@@ -43,7 +42,6 @@ export default function App() {
         }}
       />
 
-      {/* ✅ 内容层 */}
       <div style={{ position: "relative", zIndex: 2 }}>
         <h1
           style={{
