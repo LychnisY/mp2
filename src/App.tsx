@@ -1,4 +1,4 @@
-import { Link, NavLink, Route, Routes, useNavigate } from "react-router-dom";
+import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
 import SearchView from "./views/SearchView";
 import GalleryView from "./views/GalleryView";
 import DetailView from "./views/DetailView";
